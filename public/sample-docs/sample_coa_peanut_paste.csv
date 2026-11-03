@@ -1,0 +1,2 @@
+Certificate_Number,Document_Type,Issuer_Name,Issuer_Code,Testing_Date,Expiry_Date,Lot_Number,Ingredient_Name,Quantity_kg,Allergen,Test_Salmonella,Test_Aflatoxin_B1,Test_Moisture,Overall_Status
+COA-GVO-2026-081,CERTIFICATE_OF_ANALYSIS,Golden Valley Organics,GVO-99,2026-10-12,2027-04-12,LOT-PNUT-2026-081,Roasted Peanut Paste,5000,PEANUTS,POSITIVE,1.2 ppb,1.8%,FLAGGED_MICROBIAL_HAZARD

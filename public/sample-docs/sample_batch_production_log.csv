@@ -1,0 +1,2 @@
+Work_Order_ID,Batch_Number,Product_Name,Product_SKU,Packaging_Line,Production_Date,Expiry_Date,Yield_Jars,Raw_Ingredient_Lot_1,Ingredient_1_kg_Used,Raw_Ingredient_Lot_2,Ingredient_2_kg_Used,QA_Release_Status
+WO-LINE3-2026-991,BATCH-2026-1049,Crunchy Peanut Butter 400g,SKU-PB-CRUNCH-400G,Packaging Line 3,2026-10-16,2027-10-16,8400,LOT-PNUT-2026-081,2500,LOT-SUGR-2026-112,300,PASSED

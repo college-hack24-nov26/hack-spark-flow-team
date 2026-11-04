@@ -33,7 +33,9 @@ export class ReportGenerator {
         cteType: "RECEIVING",
         traceabilityLotCode: lot.lotNumber,
         itemDescription: lot.ingredientName,
-        sourceEntity: `${lot.supplier.name} (${lot.supplier.code})`,
+        sourceEntity: lot.farmerOrigin
+          ? `${lot.supplier.name} [Farmer: ${lot.farmerOrigin.farmerName}, ${lot.farmerOrigin.farmerId}]`
+          : `${lot.supplier.name} (${lot.supplier.code})`,
         destinationEntity: "Austin Processing Facility #1 - Inward Receiving Dock",
         transactionDate: lot.receivedDate,
         quantity: lot.initialQuantity,

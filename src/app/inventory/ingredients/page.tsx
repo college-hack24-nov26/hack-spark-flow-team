@@ -338,6 +338,13 @@ export default function IngredientLotsPage() {
                         <div className="text-[10px] text-slate-400">
                           {lot.supplier.code} • {lot.supplier.country}
                         </div>
+                        {lot.farmerOrigin && (
+                          <div className="mt-0.5">
+                            <span className="inline-flex items-center gap-1 text-[9px] px-1.5 py-0.2 rounded font-mono font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                              L1 Origin: {lot.farmerOrigin.farmerName} ({lot.farmerOrigin.farmerId})
+                            </span>
+                          </div>
+                        )}
                       </td>
 
                       {/* Inventory Remaining / Initial */}

@@ -45,12 +45,23 @@ export interface MassBalanceCalculation {
   isBalanced: boolean;
 }
 
+export interface FarmerOriginDetail {
+  farmerId: string;
+  farmerName: string;
+  farmLocation: string;
+  cropType: string;
+  harvestDate: string;
+  inboundLotId: string;
+  riskRating: "GREEN" | "AMBER" | "RED";
+}
+
 export interface IngredientLot {
   id: string;
   lotNumber: string;
   ingredientName: string;
   category: "Nuts & Nut Pastes" | "Grains & Cereals" | "Sweeteners" | "Oils & Fats" | "Flavorings" | "Other";
   supplier: SupplierDetail;
+  farmerOrigin?: FarmerOriginDetail;
   sourceDocument: SourceDocumentReference;
   receivedDate: string;
   expiryDate: string;

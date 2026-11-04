@@ -200,6 +200,16 @@ const initialLots: IngredientLot[] = [
       isBalanced: true,
     },
     isRecallTrigger: false,
+    farmerOrigin: {
+      farmerId: "FARM-005",
+      farmerName: "Suresh Kumar",
+      farmLocation: "Karnal District, Haryana, India",
+      cropType: "Milling Wheat & Oats",
+      harvestDate: "2026-09-30",
+      inboundLotId: "LOT-105",
+      accreditation: "GAP_CERTIFIED",
+      merchantHub: "Gharaunda Aggregation Terminal",
+    },
   },
   {
     id: "lot-oat-9102",
@@ -214,6 +224,15 @@ const initialLots: IngredientLot[] = [
       country: "United States (Iowa)",
       facilityAddress: "320 Silo Dr, Des Moines, IA 50317",
       auditRating: "UNDER_REVIEW",
+    },
+    farmerOrigin: {
+      farmerId: "FARM-004",
+      farmerName: "Kulvinder Sandhu",
+      farmLocation: "Moga District, Punjab, India",
+      cropType: "Wheat & Oats",
+      harvestDate: "2026-10-04",
+      inboundLotId: "LOT-104",
+      riskRating: "AMBER",
     },
     sourceDocument: {
       id: "doc-hgp-9102",

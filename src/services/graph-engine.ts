@@ -177,6 +177,33 @@ export class GraphEngine {
       isTainted: lot.status === "RECALLED",
     });
 
+    // 1b. L1 Farmer Origin Node if present
+    if (lot.farmerOrigin) {
+      const farmerId = `farmer-${lot.farmerOrigin.farmerId.toLowerCase()}`;
+      nodesMap.set(farmerId, {
+        id: farmerId,
+        type: "supplier",
+        data: {
+          id: farmerId,
+          type: "supplier",
+          label: `${lot.farmerOrigin.farmerName} (L1 Farm)`,
+          subtitle: `Farm: ${lot.farmerOrigin.farmLocation}`,
+          code: lot.farmerOrigin.farmerId,
+          status: lot.farmerOrigin.riskRating === "RED" ? "COMPROMISED" : "PASSED",
+          isTainted: lot.farmerOrigin.riskRating === "RED",
+          details: lot.farmerOrigin,
+        },
+      });
+
+      edgesList.push({
+        id: `e-${farmerId}-${supplierId}`,
+        source: farmerId,
+        target: supplierId,
+        label: `Harvest: ${lot.farmerOrigin.harvestDate}`,
+        isTainted: lot.farmerOrigin.riskRating === "RED",
+      });
+    }
+
     // 3. Find Downstream Production Batches
     const batches = BatchService.getAllBatches();
     const affectedBatches = batches.filter((b) =>
@@ -454,6 +481,35 @@ export class GraphEngine {
           label: `Inward: ${lot.receivedDate}`,
           isTainted,
         });
+
+        // Connect Farmer Origin if present
+        if (lot.farmerOrigin) {
+          const farmerId = `farmer-${lot.farmerOrigin.farmerId.toLowerCase()}`;
+          if (!nodesMap.has(farmerId)) {
+            nodesMap.set(farmerId, {
+              id: farmerId,
+              type: "supplier",
+              data: {
+                id: farmerId,
+                type: "supplier",
+                label: `${lot.farmerOrigin.farmerName} (L1 Farm)`,
+                subtitle: `Farm: ${lot.farmerOrigin.farmLocation}`,
+                code: lot.farmerOrigin.farmerId,
+                status: lot.farmerOrigin.riskRating === "RED" ? "COMPROMISED" : "PASSED",
+                isTainted: lot.farmerOrigin.riskRating === "RED",
+                details: lot.farmerOrigin,
+              },
+            });
+          }
+
+          edgesList.push({
+            id: `e-${farmerId}-${supplierId}`,
+            source: farmerId,
+            target: supplierId,
+            label: `Harvest: ${lot.farmerOrigin.harvestDate}`,
+            isTainted: lot.farmerOrigin.riskRating === "RED",
+          });
+        }
       }
     });
 

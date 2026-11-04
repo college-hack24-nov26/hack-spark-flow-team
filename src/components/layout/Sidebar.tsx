@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Sparkles,
   Building2,
+  Sprout,
   X,
 } from "lucide-react";
 
@@ -30,6 +31,12 @@ export const navigationItems = [
     href: "/",
     icon: LayoutDashboard,
     badge: null,
+  },
+  {
+    name: "Inbound Risk",
+    href: "/inbound",
+    icon: Sprout,
+    badge: "L2 Screening",
   },
   {
     name: "Documents",
